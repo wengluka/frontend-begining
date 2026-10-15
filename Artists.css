@@ -1,51 +1,192 @@
-body{
-    margin: 0;
-  }
+:root {
+  --bg-dark: #0f1224;
+  --bg-soft: #eef3ff;
+  --card: rgba(255, 255, 255, 0.7);
+  --text: #1c2333;
+  --text-soft: #51607a;
+  --primary: #6c63ff;
+  --primary-dark: #4338ca;
+  --accent: #ff6a3d;
+  --white: #ffffff;
+}
 
-  #navbar  {
-    display: flex;
-    position: fixed;
-    width: 100%;
-    justify-content: center;
-    background-color: #0000ff;
-    font-family: fantasy;
-  }
-  
-  /* Navbar links */
-  #navbar a {
-    display: inline-block;
-    color: #f2f2f2;
-    text-transform: inherit;
-    text-align: center;
-    padding: 24px;
-    text-decoration: none;
-  }
+* {
+  box-sizing: border-box;
+}
 
-   .container{
-    display: flex;
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: linear-gradient(135deg, #f9faff 0%, #edf2ff 100%);
+  color: var(--text);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+#navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  background: rgba(15, 18, 36, 0.94);
+  backdrop-filter: blur(12px);
+  padding: 1rem 1.5rem;
+  box-shadow: 0 12px 30px rgba(15, 18, 36, 0.12);
+}
+
+#navbar a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+#navbar a:hover,
+#navbar a.active {
+  background: rgba(108, 99, 255, 0.2);
+}
+
+.artists-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.artists-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.8rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.artists-header h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  letter-spacing: -0.05em;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.3rem;
+}
+
+.gallery-item {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 22px;
+  background: var(--card);
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  box-shadow: 0 14px 32px rgba(15, 18, 36, 0.08);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 32px rgba(15, 18, 36, 0.14);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.gallery-item figcaption {
+  padding: 0.8rem 0.9rem 1rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.gallery-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.25s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button.primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--white);
+  box-shadow: 0 18px 35px rgba(108, 99, 255, 0.22);
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 16, 31, 0.82);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 40;
+  padding: 1.5rem;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: min(90vw, 720px);
+  max-height: 80vh;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+}
+
+.close-lightbox {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  #navbar {
     flex-wrap: wrap;
-    justify-content: center;
-   }
-
-  h1{
-    padding-top: 3em;
-    font-family: fantasy;
-    font-size: 2em;
-    border-bottom: 3px solid black;
-    width: 400px;
-    border-right: 2px solid black;
+    gap: 0.5rem;
   }
 
-  .button {
-    background-color: #0000ff;
-    border: none;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    border-radius: 12px;
+  .gallery-item img {
+    height: 240px;
   }
-  
+}

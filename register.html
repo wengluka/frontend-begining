@@ -1,56 +1,85 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>register</title>
-        <link rel="stylesheet" type="text/css" href="register.css">
-    </head>
-     <body>
-      <div id="navbar">
-        <a href="first.html">Home</a>
-        <a href="our artists.html">Our Artist</a>
-        <a href="register.html">Register</a>
-      </div>
-     <header>
-        <form method="POST">
-          <div class="personalinformation">
-            <h1>fill in your information correctly</h1>
-          First Name:<input type="text" placeholder="first name" name="firstname"required >
-          Last Name:<input type="text" placeholder="last name" name="lastname"required ><br>
-          Midle Name:<input type="text" placeholder="middle name" name="middlename"required >
-          Email Addr:<input type="email" placeholder="email address" name="email"required ><br>
-          Password:<input type="password" placeholder="must be 6 characters long" name="password" required minlength="6">
-          Date Of Birth:<input type="date" name="dateofbirth"><br>
-          Age Range:
-          <select>
-            <option value="11-15" name="11-15">11-15</option>
-            <option value="16-20" name="16-20">16-20</option>
-            <option value="21-25" name="21-25">21-25</option>
-            <option value="26-30" name="26-30">26-30</option>
-            <option value="31-35" name="30-35">30-35</option>
-             <option value="36-40" name="36-40">36-40</option>
-          </select><br>
-          Gender:
-            <input type="radio" name="gender" value="MALE">Male
-            <input type="radio" name="gender" value="FEMALE">Female
-            <input type="radio" name="gender" value="OTHERS">Others <br>
-          Sports invoved in:<br>
-          <input type="checkbox" name="football">Football<br>
-          <input type="checkbox" name="volleyball">Volleyball<br>
-          <input type="checkbox" name="basketball">Basketball<br>
-          <input type="checkbox" name=" short put">short put<br>
-          <input type="checkbox" name="None">None<br>
-      <div class="upload">
-          <FORM action="UPLOAD.PHP"
-        method="post"
-        enctype="multipart/form-data">
-        <label for="file">upload secondry school certificate</label>
-        <input type="file" id="file"
-        name="file"
-        accept=".jpg, .pdf, .png"><br>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register | Ugobest Music Label</title>
+    <link rel="stylesheet" type="text/css" href="register.css" />
+  </head>
+  <body>
+    <nav id="navbar">
+      <a href="index.html">Home</a>
+      <a href="our artists.html">Our Artist</a>
+      <a href="register.html">Register</a>
+    </nav>
+
+    <main class="register-page">
+      <section class="register-intro">
+        <p class="eyebrow">Join the movement</p>
+        <h1>Become part of our next wave of talent.</h1>
+        <p>
+          Tell us about yourself and your music. Our team will review your details
+          and get in touch if there is a good fit.
+        </p>
+      </section>
+
+      <section class="form-panel">
+        <form class="register-form" method="post">
+          <div class="form-grid">
+            <label>
+              First Name
+              <input type="text" name="firstname" autocomplete="given-name" placeholder="First name" required />
+            </label>
+
+            <label>
+              Last Name
+              <input type="text" name="lastname" autocomplete="family-name" placeholder="Last name" required />
+            </label>
+
+            <label>
+              Artist or Band Name
+              <input type="text" name="artistname" autocomplete="organization" placeholder="Your artist name" required />
+            </label>
+
+            <label>
+              Email Address
+              <input type="email" name="email" autocomplete="email" placeholder="you@example.com" required />
+            </label>
+
+            <label>
+              Phone Number (optional)
+              <input type="tel" name="phone" autocomplete="tel" placeholder="+234 800 000 0000" />
+            </label>
+
+            <label>
+              Primary Genre
+              <select name="genre" required>
+                <option value="">Select a genre</option>
+                <option value="Afrobeats">Afrobeats</option>
+                <option value="Hip-hop">Hip-hop</option>
+                <option value="R&B">R&amp;B</option>
+                <option value="Gospel">Gospel</option>
+                <option value="Other">Other</option>
+              </select>
+            </label>
+
+            <label>
+              Music or Profile Link
+              <input type="url" name="musiclink" placeholder="https://..." />
+            </label>
+
+            <label class="full-width">
+              Tell us about yourself and your music
+              <textarea name="bio" rows="5" maxlength="1000" placeholder="A short introduction to you and your music"></textarea>
+            </label>
           </div>
-          </header>
-          <input type="submit" value="apply" class="submit"><br>
-          <a href="first.html" class="button"><H2>Go back to home page</H2></a>
+
+          <button type="submit" class="submit-btn">Submit application</button>
+          <a href="index.html" class="button-link">Go back to home page</a>
         </form>
-    </body>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
 </html>
